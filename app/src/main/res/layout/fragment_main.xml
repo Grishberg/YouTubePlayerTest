@@ -23,4 +23,68 @@
         android:minHeight="100dp"
         />
 
+
+    <com.github.pedrovgs.DraggableView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/draggable_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        draggable_view:top_view_id="@+id/top_panel"
+        draggable_view:bottom_view_id="@+id/bottom_panel"
+        draggable_view:top_view_x_scale_factor="2.5"
+        draggable_view:top_view_y_scale_factor="2.5"
+
+        >
+
+        <!-- ListView Episodes -->
+        <RelativeLayout
+            android:id="@+id/bottom_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/iv_fan_art"
+            android:background="#ff9461c7"
+            >
+            <ListView
+                android:id="@+id/lv_episodes"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                />
+        </RelativeLayout>
+
+        <!-- TvShow Fan Art -->
+        <RelativeLayout
+            android:id="@+id/top_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:minHeight="100dp"
+                android:minWidth="200dp"
+                android:background="#ff00EE"
+                >
+                <FrameLayout
+                    android:id="@+id/youtube_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:background="#ff46f6f6"
+                    android:minHeight="100dp"
+                    android:minWidth="200dp"
+                    android:padding="8dp"
+                    android:layout_margin="8dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.github.pedrovgs.DraggableView>
+
+
+
 </LinearLayout>
