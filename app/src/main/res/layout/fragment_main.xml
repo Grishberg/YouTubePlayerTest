@@ -1,39 +1,54 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/activity_vertical_margin"
-              android:paddingBottom="@dimen/activity_vertical_margin"
               tools:context=".MainActivityFragment"
               android:orientation="vertical">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <FrameLayout
-        android:id="@+id/fragment_youtube_player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:minWidth="200dp"
-        android:minHeight="100dp"
-        />
+        <TextView
+            android:id="@+id/tv_text"
+            android:text="@string/hello_world"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_youtube_player1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+
+            />
+        <ListView
+            android:id="@+id/video_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="#AAAAAA"
+            />
+    </LinearLayout>
 
 
     <com.github.pedrovgs.DraggableView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/draggable_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         draggable_view:top_view_id="@+id/top_panel"
         draggable_view:bottom_view_id="@+id/bottom_panel"
-        draggable_view:top_view_x_scale_factor="2.5"
-        draggable_view:top_view_y_scale_factor="2.5"
+        draggable_view:top_view_x_scale_factor="2"
+        draggable_view:top_view_y_scale_factor="2"
+        draggable_view:top_view_margin_right="4dp"
+        draggable_view:top_view_margin_bottom="4dp"
+        draggable_view:top_view_resize="true"
+        draggable_view:enable_minimized_horizontal_alpha_effect="false"
 
         >
 
@@ -42,7 +57,7 @@
             android:id="@+id/bottom_panel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/iv_fan_art"
+            android:layout_below="@+id/top_panel"
             android:background="#ff9461c7"
             >
             <ListView
@@ -66,25 +81,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_alignParentTop="true"
-                android:minHeight="100dp"
-                android:minWidth="200dp"
-                android:background="#ff00EE"
+
+                android:background="#000000"
                 >
                 <FrameLayout
-                    android:id="@+id/youtube_view"
-                    android:layout_width="fill_parent"
-                    android:layout_height="250dp"
-                    android:background="#ff46f6f6"
-                    android:minHeight="100dp"
-                    android:minWidth="200dp"
-                    android:padding="8dp"
-                    android:layout_margin="8dp"
+                    android:id="@+id/fragment_youtube_player"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="0dp"
+                    android:layout_margin="1dp"
                     />
             </LinearLayout>
         </RelativeLayout>
 
     </com.github.pedrovgs.DraggableView>
 
-
-
-</LinearLayout>
+</RelativeLayout>

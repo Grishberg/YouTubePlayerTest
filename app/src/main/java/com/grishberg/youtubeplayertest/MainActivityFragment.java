@@ -2,10 +2,12 @@ package com.grishberg.youtubeplayertest;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.pedrovgs.DraggableView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -20,6 +22,7 @@ public class MainActivityFragment extends Fragment
 	public static final String YOUTUBE_API_KEY			="AIzaSyD0INVrE2YHbGJqhU3iTjzLSPOFDAuactE";
 	private YouTubePlayerSupportFragment	mYouTubeContainer;
 	private YouTubePlayer					mYouTubePlayer;
+	private DraggableView					mDraggableView;
 	public MainActivityFragment()
 	{
 	}
@@ -35,6 +38,7 @@ public class MainActivityFragment extends Fragment
 	public void onActivityCreated(Bundle savedInstanceState)
 	{
 		super.onActivityCreated(savedInstanceState);
+		mDraggableView		= (DraggableView)  	getView().findViewById(R.id.draggable_view);
 		initiliazeYoutubeFragment();
 	}
 
@@ -51,9 +55,47 @@ public class MainActivityFragment extends Fragment
 				if (!wasRestored)
 				{
 					mYouTubePlayer	= youTubePlayer;
-//					youTubePlayer.cueVideo("nCgQDjiotG0");
+					//mYouTubePlayer.cueVideo("nCgQDjiotG0");
 					mYouTubePlayer.loadVideo("nCgQDjiotG0");
 					mYouTubePlayer.play();
+					mYouTubePlayer.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener()
+					{
+						@Override
+						public void onLoading()
+						{
+
+						}
+
+						@Override
+						public void onLoaded(String s)
+						{
+
+						}
+
+						@Override
+						public void onAdStarted()
+						{
+
+						}
+
+						@Override
+						public void onVideoStarted()
+						{
+
+						}
+
+						@Override
+						public void onVideoEnded()
+						{
+
+						}
+
+						@Override
+						public void onError(YouTubePlayer.ErrorReason errorReason)
+						{
+							Log.d(TAG,errorReason.toString());
+						}
+					});
 				}
 			}
 
